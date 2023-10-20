@@ -1,0 +1,23 @@
+syntax = "proto3";
+package payment;
+
+message PaymentRequest {
+    int32 id = 1;
+    string from = 2;
+    string to = 3;
+    string reference = 4;
+    string amount = 5;
+}
+
+message PaymentResponse {
+    int32 id = 1;
+    string from = 2;
+    string to = 3;
+    string reference = 4;
+    string amount = 5;
+    int32 status = 6;
+}
+
+service Payments {
+    rpc InitiatePayment (PaymentRequest) returns (PaymentResponse);
+}
